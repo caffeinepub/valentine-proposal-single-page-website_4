@@ -1,0 +1,72 @@
+{
+  "kind": "build_request",
+  "title": "Fix top-of-page personal photo placeholder not showing uploaded image",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Ensure the user-provided personal photo renders visibly in the top-of-page placeholder on the Valentine proposal page by fixing the static asset reference and build/deploy asset availability for the file path currently used: /assets/generated/personal-photo.dim_1600x1600.png.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "there is a placeholder on the top of the page it was not visible during upload as well"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On page load, the personal photo area at the top shows the actual image (not an empty frame/placeholder).",
+        "The browser network panel shows the personal photo request returns HTTP 200 (no 404/failed request) for /assets/generated/personal-photo.dim_1600x1600.png.",
+        "No console errors occur related to failing to load the personal photo asset."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add robust client-side handling for the personal photo element so that if the image cannot load, the UI does not show a broken/empty placeholder; instead, render a clear fallback state in the photo frame with English text indicating the photo is unavailable.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "there is a placeholder on the top of the page it was not visible during upload as well"
+        ]
+      },
+      "acceptanceCriteria": [
+        "If the personal photo fails to load (simulated by pointing to an invalid URL), the photo container shows a fallback (no broken image icon).",
+        "Fallback copy is in English and is readable on both mobile and desktop."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Audit the Valentine proposal page UI to confirm there is no remaining in-app upload/preview flow, and that the user’s personal photo is only displayed as a fixed static asset at the top of the page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "there is a placeholder on the top of the page it was not visible during upload as well"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is no visible photo upload control or upload preview UI on the page.",
+        "The only personal photo shown is the fixed static asset displayed in the top photo frame."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not add or rely on any backend logic; the backend must remain unchanged.",
+    "Do not edit files under frontend/src/components/ui or any frontend immutablePaths listed in SYSTEM_CONTEXT.",
+    "The personal photo must remain a static frontend asset referenced by the existing public URL path (/assets/generated/personal-photo.dim_1600x1600.png)."
+  ],
+  "nonGoals": [
+    "Adding user accounts, storage, or a real upload feature.",
+    "Changing the Valentine page copy, animations, or the No-button behavior beyond what is required to fix the photo visibility issue."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

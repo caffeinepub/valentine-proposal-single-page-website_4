@@ -1,2 +1,3 @@
-# valentine-proposal-single-page-website_4
-Exported from Caffeine project: Fix top-of-page personal photo placeholder not showing uploaded image
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

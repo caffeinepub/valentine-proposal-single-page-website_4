@@ -1,0 +1,63 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T14:14:25.014Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Ensure the user-provided personal photo renders visibly in the top-of-page placeholder on the Valentine proposal page by fixing the static asset reference and build/deploy asset availability for the file path currently used: /assets/generated/personal-photo.dim_1600x1600.png.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/personal-photo.dim_1600x1600.png",
+          "frontend/src/pages/ValentineProposalPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ValentineProposalPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add robust client-side handling for the personal photo element so that if the image cannot load, the UI does not show a broken/empty placeholder; instead, render a clear fallback state in the photo frame with English text indicating the photo is unavailable.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PersonalPhotoFrame.tsx",
+          "frontend/src/pages/ValentineProposalPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PersonalPhotoFrame.tsx",
+          "frontend/src/pages/ValentineProposalPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Audit the Valentine proposal page UI to confirm there is no remaining in-app upload/preview flow, and that the user’s personal photo is only displayed as a fixed static asset at the top of the page.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ValentineProposalPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ValentineProposalPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/PersonalPhotoFrame.tsx",
+    "frontend/src/pages/ValentineProposalPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

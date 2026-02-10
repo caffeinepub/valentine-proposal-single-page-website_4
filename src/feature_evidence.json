@@ -1,0 +1,60 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-ensure-the-user-provided-personal-photo-renders-visibly-in-the-top-of-page-placeholder-on-the-valentine-proposal-page-by-fixing-the-static-asset-reference-and-build-deploy-asset-availability-for-the-file-path-currently-used-assets-generated-personal-photo-dim-1600x1600-png",
+      "featureTitle": "Ensure the user-provided personal photo renders visibly in the top-of-page placeholder on the Valentine proposal page by fixing the static asset reference and build/deploy asset availability for the file path currently used: /assets/generated/personal-photo.dim_1600x1600.png.",
+      "files": [
+        "frontend/src/pages/ValentineProposalPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-robust-client-side-handling-for-the-personal-photo-element-so-that-if-the-image-cannot-load-the-ui-does-not-show-a-broken-empty-placeholder-instead-render-a-clear-fallback-state-in-the-photo-frame-with-english-text-indicating-the-photo-is-unavailable",
+      "featureTitle": "Add robust client-side handling for the personal photo element so that if the image cannot load, the UI does not show a broken/empty placeholder; instead, render a clear fallback state in the photo frame with English text indicating the photo is unavailable.",
+      "files": [
+        "frontend/src/components/PersonalPhotoFrame.tsx",
+        "frontend/src/pages/ValentineProposalPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-audit-the-valentine-proposal-page-ui-to-confirm-there-is-no-remaining-in-app-upload-preview-flow-and-that-the-user-s-personal-photo-is-only-displayed-as-a-fixed-static-asset-at-the-top-of-the-page",
+      "featureTitle": "Audit the Valentine proposal page UI to confirm there is no remaining in-app upload/preview flow, and that the user’s personal photo is only displayed as a fixed static asset at the top of the page.",
+      "files": [
+        "frontend/src/pages/ValentineProposalPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

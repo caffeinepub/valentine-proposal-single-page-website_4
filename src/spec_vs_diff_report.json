@@ -1,0 +1,40 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T14:14:25.011Z",
+  "summary": "The diff adds a new PersonalPhotoFrame component with loading/error UI and wires it into ValentineProposalPage, but it points to a different image URL than the required fixed static asset path and provides no evidence that the required asset is made available at build/deploy under /assets/generated/.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Ensure the personal photo renders using the existing public URL path /assets/generated/personal-photo.dim_1600x1600.png and ensure build/deploy asset availability so the request returns HTTP 200 with no related console errors.",
+      "reason": "The new component hardcodes a different URL (a WhatsApp JPEG path) instead of the required /assets/generated/personal-photo.dim_1600x1600.png. The diff also shows no added/copied static asset or configuration change that would ensure /assets/generated/personal-photo.dim_1600x1600.png is present and served (HTTP 200) after build/deploy.",
+      "evidence": [
+        "frontend/src/components/PersonalPhotoFrame.tsx (PERSONAL_PHOTO_URL = '/assets/WhatsApp Image 2026-02-10 at 00.43.36.jpeg')",
+        "frontend/src/pages/ValentineProposalPage.tsx (uses <PersonalPhotoFrame ... /> but no reference to /assets/generated/personal-photo.dim_1600x1600.png)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Changed the personal photo asset reference to a different URL ('/assets/WhatsApp Image 2026-02-10 at 00.43.36.jpeg') instead of keeping the mandated static asset path '/assets/generated/personal-photo.dim_1600x1600.png'.",
+      "reason": "BuildRequest explicitly constrains the personal photo to remain a static frontend asset referenced by the existing public URL path /assets/generated/personal-photo.dim_1600x1600.png; the diff introduces a different path.",
+      "evidence": [
+        "frontend/src/components/PersonalPhotoFrame.tsx"
+      ]
+    },
+    {
+      "description": "Added a loading spinner/\"Loading photo...\" state before the image loads.",
+      "reason": "REQ-2 asks for an error fallback if the image cannot load, but does not request a loading state/spinner; this is additional UI behavior beyond the specified requirements.",
+      "evidence": [
+        "frontend/src/components/PersonalPhotoFrame.tsx (imageLoaded state + spinner overlay + 'Loading photo...')"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/PersonalPhotoFrame.tsx",
+    "frontend/src/pages/ValentineProposalPage.tsx",
+    "project_state.json"
+  ]
+}

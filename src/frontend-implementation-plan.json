@@ -1,0 +1,63 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix Valentine proposal personal photo static asset visibility and fallback",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Ensure the top personal photo renders by making the referenced static asset available at the exact public URL and keeping the page reference correct for build/deploy.",
+      "acceptanceCriteria": [
+        "On page load, the personal photo area at the top shows the actual image (not an empty frame/placeholder).",
+        "The browser network panel shows the personal photo request returns HTTP 200 (no 404/failed request) for /assets/generated/personal-photo.dim_1600x1600.png.",
+        "No console errors occur related to failing to load the personal photo asset."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/personal-photo.dim_1600x1600.png",
+          "operation": "create",
+          "description": "Add the personal photo static asset to the app's public assets so it is served at the required public URL path (/assets/generated/personal-photo.dim_1600x1600.png) in local dev and in build/deploy output."
+        },
+        {
+          "path": "frontend/src/pages/ValentineProposalPage.tsx",
+          "operation": "modify",
+          "description": "Keep the personal photo <img> source referencing the required fixed public URL path and adjust the implementation to avoid accidental path changes (e.g., centralize the URL in a constant and ensure it is used consistently)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add client-side error handling for the personal photo so the UI shows a readable English fallback state instead of a broken/empty placeholder when the image fails to load.",
+      "acceptanceCriteria": [
+        "If the personal photo fails to load (simulated by pointing to an invalid URL), the photo container shows a fallback (no broken image icon).",
+        "Fallback copy is in English and is readable on both mobile and desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PersonalPhotoFrame.tsx",
+          "operation": "create",
+          "description": "Create a dedicated PersonalPhotoFrame component that renders the static image and switches to a styled fallback state with clear English text when the image load fails (e.g., using an onError handler and conditional rendering)."
+        },
+        {
+          "path": "frontend/src/pages/ValentineProposalPage.tsx",
+          "operation": "modify",
+          "description": "Replace the inline personal photo <img> block with the new PersonalPhotoFrame component so the top-of-page photo area always renders either the image or the fallback state (no broken image icon)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Audit and ensure the Valentine proposal page has no upload/preview flow and only displays the fixed static personal photo asset at the top.",
+      "acceptanceCriteria": [
+        "There is no visible photo upload control or upload preview UI on the page.",
+        "The only personal photo shown is the fixed static asset displayed in the top photo frame."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ValentineProposalPage.tsx",
+          "operation": "modify",
+          "description": "Audit and remove/avoid any in-page upload or preview UI (e.g., file inputs, drag-and-drop areas, preview states) and ensure the personal photo is displayed only via the fixed static asset URL at the top of the page."
+        }
+      ]
+    }
+  ]
+}

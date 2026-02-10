@@ -1,0 +1,20 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no backend logic.",
+  "feature_evidence.json": "Feature evidence listing affected frontend files and components for photo rendering, fallback UI, and UI audit.",
+  "frontend-file-summaries.txt": "Text file containing prewritten summaries of key frontend files and components.",
+  "frontend/index.css": "Tailwind base setup defining theme variables for light/dark mode and applying background and text utilities.",
+  "frontend/index.html": "HTML entry point mounting the React app and loading main.tsx.",
+  "frontend/src/App.tsx": "Root component rendering the ValentineProposalPage.",
+  "frontend/src/components/CelebrationOverlay.tsx": "Generates floating and falling animated hearts using randomized properties and inline keyframes.",
+  "frontend/src/components/PersonalPhotoFrame.tsx": "Displays a static personal photo with loading spinner and a romantic fallback when the image fails.",
+  "frontend/src/components/PlayfulNoButton.tsx": "No button that disappears on hover using simple state toggling.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and managing a backend actor tied to Internet Identity state.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Context and provider for handling Internet Identity login, state, and persistence.",
+  "frontend/src/hooks/usePrefersReducedMotion.ts": "Hook detecting the user's prefers-reduced-motion setting with change listeners.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file exporting nothing for unused backend queries.",
+  "frontend/src/index.css": "Defines Tailwind layers, theme CSS variables for light/dark modes, global styles, and custom animation keyframes/classes.",
+  "frontend/src/main.tsx": "Bootstraps the React app with ReactDOM, wraps it in QueryClientProvider and InternetIdentityProvider, and loads global CSS.",
+  "frontend/src/pages/ValentineProposalPage.tsx": "Implements the Valentine proposal UI with animations, images, a yes/no interaction flow, and triggers celebration on acceptance.",
+  "frontend/tailwind.config.js": "Configures Tailwind with custom colors mapped to CSS variables, extended fonts, radii, shadows, and plugin integrations.",
+  "project_state.json": "Tracks project metadata, known issues, and feature requests related to fixing the personal photo display behavior."
+}

@@ -1,0 +1,11 @@
+{
+  "frontend/src/index.css": "Global styles with sky-blue and pink accent OKLCH color palette for light and dark modes, custom animations for floating hearts, fade-in effects, heartbeat pulses, and Yes button click animation with reduced-motion support, using Georgia serif font family.",
+  "frontend/src/App.tsx": "Root application component that renders the ValentineProposalPage as the main single-page view.",
+  "frontend/src/pages/ValentineProposalPage.tsx": "Main Valentine proposal page with two states (proposal and accepted), featuring the PersonalPhotoFrame component at the top, the personalized question for Yaanu, playful No button that vanishes on hover, Yes button with click animation that triggers celebration, romantic messaging, generated image assets as background and illustration, and responsive layout with proper semantic HTML.",
+  "frontend/src/components/PlayfulNoButton.tsx": "Interactive \"No\" button component that instantly vanishes (removes from DOM) when the cursor hovers over it, with no movement or animation behavior.",
+  "frontend/src/components/CelebrationOverlay.tsx": "Celebration overlay component that displays 30+ animated floating hearts rising from bottom and falling from top with randomized positions, sizes, delays, and durations, auto-ending after display without blocking interaction.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Georgia serif font family, additional border radius utilities (xl, 2xl, 3xl), and enhanced shadow options to support the romantic Valentine theme.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file for React Query hooks (no backend queries needed for this frontend-only feature).",
+  "frontend/src/hooks/usePrefersReducedMotion.ts": "React hook that detects and returns the user's prefers-reduced-motion media query preference with proper event listener cleanup.",
+  "frontend/src/components/PersonalPhotoFrame.tsx": "Dedicated component that displays the personal photo from static assets with loading state, error handling, and a romantic fallback UI with heart icon when the image fails to load."
+}
